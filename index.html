@@ -1,1 +1,48 @@
-<h1>CLASE 4</h1>
+<!DOCTYPE html>
+<html lang="es" style="background:#121212; color:white; font-family:sans-serif">
+<body>
+    <header style="text-align:center">
+        <nav><a href="#n" style="color:#0af">Nosotros</a> | <a href="#s" style="color:#0af">Servicios</a> | <a href="#c" style="color:#0af">Contacto</a></nav>
+    </header>
+
+    <section id="n"><h2>Nosotros</h2><p>Equipo Clase 04.</p></section>
+
+    <section id="s">
+        <h2>Servicios</h2>
+        <div style="display:flex; gap:10px">
+            <div style="border:1px solid #444; padding:10px">S1</div>
+            <div style="border:1px solid #444; padding:10px">S2</div>
+            <div style="border:1px solid #444; padding:10px">S3</div>
+        </div>
+    </section>
+
+    <section id="c">
+        <h2>Contacto</h2>
+        <form id="f" style="display:grid; gap:5px; width:200px">
+            <input id="e" type="text" placeholder="Correo (@)">
+            <textarea placeholder="Mensaje"></textarea>
+            <button type="submit" style="background:#0af">Enviar</button>
+            <p id="m" style="font-size:12px"></p>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('f').onsubmit = (e) => {
+            e.preventDefault(); // Evita recargar página
+            const correo = document.getElementById('e').value;
+            const msg = document.getElementById('m');
+
+            if (!correo) {
+                msg.innerText = "Está vacío";
+                msg.style.color = "red";
+            } else if (!correo.includes('@')) {
+                msg.innerText = "Falta el @";
+                msg.style.color = "orange";
+            } else {
+                msg.innerText = "¡Enviado con éxito!";
+                msg.style.color = "green";
+            }
+        };
+    </script>
+</body>
+</html>
